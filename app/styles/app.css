@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+  color: white;
+  background-color: black;
+}
+
+.universe {
+  /* The universe is BIG */
+  position: absolute;
+  width: 100vw;
+  height: 99vh;
+}
+
+.navigation-panel {
+  position: absolute;
+  width: 100vw;
+  height: 20vh;
+  padding: 20px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#current-location {
+  text-align: center;
+}
+
+.object-list {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+a:visited, a:active {
+  color: inherit;
+}
+
+.object-list > a {
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: white;
+  border-radius: 2px;
+  margin: 0 10px;
+  line-height: 35px;
+  color: black;
+  text-decoration: none;
+}
+
+.object-list > a.active {
+  background-color: #ff5252;
+  color: white;
+}
+
+.object-name {
+  color: white;
+}

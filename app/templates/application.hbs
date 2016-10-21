@@ -1,0 +1,14 @@
+{{#the-universe}}
+  {{outlet}}
+{{/the-universe}}
+
+<nav class="navigation-panel">
+  <div id="current-location"></div>
+  <div class="object-list">
+    {{#each objects as |o|}}
+      {{#link-to "astronomical-object" o}}
+        {{classify o}}
+      {{/link-to}}
+    {{/each}}
+  </div>
+</nav>

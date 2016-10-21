@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('astronomical-object', { path: '/:object_name' });
 });
 
 export default Router;
