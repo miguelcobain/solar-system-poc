@@ -103,7 +103,7 @@ export function createEarthCloud() {
       // update texture with result
       contextResult.putImageData(dataResult, 0, 0);
       material.map.needsUpdate = true;
-    })
+    });
     imageTrans.src = `${BASE_URL}earthcloudmaptrans.jpg`;
   }, false);
   imageMap.src = `${BASE_URL}earthcloudmap.jpg`;
@@ -202,7 +202,7 @@ export function createSaturnRing() {
       // update texture with result
       contextResult.putImageData(dataResult,0,0);
       material.map.needsUpdate = true;
-    })
+    });
     imageTrans.src = `${BASE_URL}saturnringpattern.gif`;
   }, false);
   imageMap.src = `${BASE_URL}saturnringcolor.jpg`;

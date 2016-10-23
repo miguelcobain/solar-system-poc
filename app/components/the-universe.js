@@ -22,9 +22,12 @@ export default Component.extend(ParentMixin, {
   draw() {
     requestAnimationFrame(() => this.draw());
 
+    this.starSphere.rotation.y += 0.00006;
+    this.starSphere.rotation.x += 0.00006;
+
     this.get('childComponents').invoke('animate');
 
-    this.renderer.render(this.scene, this.camera);
+    this.webGLRenderer.render(this.scene, this.camera);
     this.cssRenderer.render(this.cssScene, this.camera);
   },
 
@@ -38,7 +41,7 @@ export default Component.extend(ParentMixin, {
     this.element.appendChild(cssRenderer.domElement);
     this.cssScene = new THREE.Scene();
 
-    let renderer = this.renderer = new THREE.WebGLRenderer({
+    let renderer = this.webGLRenderer = new THREE.WebGLRenderer({
       antialias: true
     });
     renderer.setSize(this.element.offsetWidth, this.element.offsetHeight);
@@ -72,7 +75,7 @@ export default Component.extend(ParentMixin, {
   	light.shadow.mapSize.height	= 1024;
 
     // AND THEN HE CREATED THE STARS
-    let starSphere = createStarfield();
+    let starSphere = this.starSphere = createStarfield();
     scene.add(starSphere);
 
     window.addEventListener('resize', run.bind(this, this.onWindowResize), false);
@@ -81,7 +84,7 @@ export default Component.extend(ParentMixin, {
   onWindowResize() {
     this.camera.aspect = this.element.offsetWidth / this.element.offsetHeight;
 		this.camera.updateProjectionMatrix();
-		this.renderer.setSize(this.element.offsetWidth, this.element.offsetHeight);
+		this.webGLRenderer.setSize(this.element.offsetWidth, this.element.offsetHeight);
 		this.cssRenderer.setSize(this.element.offsetWidth, this.element.offsetHeight);
   }
 
